@@ -1,1 +1,1 @@
-console.log("Beguin a proyect")
+console.log("Begin a proyect")
