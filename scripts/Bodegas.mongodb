@@ -905,3 +905,7 @@ db.historiales.insertMany([
         updated_at: ISODate('2022-07-11')
     }
 ]);
+
+
+use("DB_BODEGAS_V1");
+db.inventarios.find()
