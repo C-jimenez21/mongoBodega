@@ -3,8 +3,7 @@ import {getBodegas} from '../controllers/getData.js'
 
 const appBodegas = Router();
 
-appBodegas.get('/', getBodegas)
-appBodegas.get('/', getA)
-appBodegas.get('/', getBodegas)
+appBodegas.get('/bodegas', getBodegas)
+
 
 export default appBodegas

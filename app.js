@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from 'dotenv'
 
-import appBodegas from "./routers/getRoutes.js";
+import appBodegas from "./src/routers/getRoutes.js";
 
 dotenv.config()
 
@@ -12,6 +12,7 @@ appExpress.use('/', appBodegas)
 
 
 let config = JSON.parse(process.env.MY_SERVER)
+
 appExpress.listen( config,() => {
     console.log(`listening on http://${config.hostname}:${config.port}`)
 });
