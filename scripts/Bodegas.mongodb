@@ -909,3 +909,120 @@ db.historiales.insertMany([
 
 use("DB_BODEGAS_V1");
 db.inventarios.find()
+
+
+// Realizar un EndPoint que permita listar todos los productos en orden
+// descendente por el campo "Total".
+// • El campo "Total" es la cantidad de unidades que la empresa tiene
+// de este producto, considerando la unión de todas las bodegas, es
+// decir que el dato como tal no existe en la base de datos,sino se debe
+// calcular. Si la Bodega A tiene 1O unidades, la Bodega B tiene 5
+// unidades y la Bodega C tiene 3 unidades. Total= 18.
+
+use("DB_BODEGAS_V1");
+db.getCollection("inventarios").aggregate([
+    { $group: { _id: "$_id", total: { $sum: "$cantidad" } } },
+    { $sort: { total: -1 } }
+])
+
+db.getCollection("inventarios").aggregate([
+    {
+        $lookup:
+          {
+            from: "bodegas",
+            localField: "id_bodega",
+            foreignField: "_id",
+            as: "fk_prod"
+          }
+     },
+])
+//     { $group: { _id: "$_id", total: { $sum: "$cantidad" } } },
+//     { $sort: { total: -1 } }
+// ])
+
+
+use("DB_BODEGAS_V1");
+db.getCollection("inventarios").aggregate([
+  {
+    $lookup: {
+      from: "productos",
+      localField: "_id",
+      foreignField: "_id",
+      as: "producto_relacionado"
+    }
+  },
+  {
+    $unwind: "$producto_relacionado"
+  },
+  {
+    $group: {
+      _id: "$id_producto",
+      Producto_Nombre: { $first: "$producto_relacionado.nombre" },
+      Total: { $sum: "$cantidad" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      "producto_relacionado._id": 0,
+      created_at: 0,
+      created_by: 0,
+      updated_at: 0
+    }
+  },
+  {
+    $sort: { Total: -1 }
+  }
+])
+
+
+
+use("DB_BODEGAS_V1");
+db.getCollection("inventarios").aggregate([   
+    {$lookup: {
+        from: "productos",
+        localField: "id_producto",
+        foreignField: "_id",
+        as: "product_info"
+    }
+},
+{
+    $unwind: "$product_info"
+}
+])
+
+
+const collection = await collectionGen("inventarios");
+            const pipeline = [
+                {
+                    $lookup: {
+                        from: "productos",
+                        localField: "id_producto",
+                        foreignField: "_id",
+                        as: "product_info"
+                    }
+                },
+                {
+                    $unwind: "$product_info"
+                },
+                {
+                    $group: {
+                        _id: "$id_producto",
+                        total: { $sum: "$cantidad" },
+                        inventarios: { $push: "$$ROOT" },
+                        Producto_ID: { $first: "$product_info._id" },
+                        Producto_Nombre: { $first: "$product_info.nombre" },
+                        Descripcion: { $first: "$product_info.descripcion" }
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        Producto_ID: 1,
+                        Producto_Nombre: 1,
+                        Descripcion: 1,
+                        total: 1
+                    }
+                }
+            ]
+            const result = collection.aggregate(pipeline).sort({ total: -1 }).toArray();
