@@ -512,3 +512,396 @@ db.createCollection("productos", {
 
 
 
+use("DB_BODEGAS_V1");
+db.productos.insertMany([
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto0',
+        descripcion: 'producto0',
+        estado: 1,
+        created_by: 16
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto1',
+        descripcion: 'producto1',
+        estado: 1,
+        created_by: 14
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto2',
+        descripcion: 'producto2',
+        estado: 1,
+        created_by: 13
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto3',
+        descripcion: 'producto3',
+        estado: 1,
+        created_by: 20
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto4',
+        descripcion: 'producto4',
+        estado: 1,
+        created_by: 19
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto5',
+        descripcion: 'producto5',
+        estado: 1,
+        created_by: 11
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto6',
+        descripcion: 'producto6',
+        estado: 1,
+        created_by: 12
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto7',
+        descripcion: 'producto7',
+        estado: 1,
+        created_by: 11
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto8',
+        descripcion: 'producto8',
+        estado: 1,
+        created_by: 11
+    },
+    {
+        _id: Number(siguienteId("productos")),
+        nombre: 'producto9',
+        descripcion: 'producto9',
+        estado: 1,
+        created_by: 19
+    }
+]);
+
+use("DB_BODEGAS_V1");
+db.createCollection("inventarios", {
+    capped: true,
+    size: 5000,
+    max: 30,
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            additionalProperties: false,
+            required: ['_id', 'id_bodega', 'id_producto', 'cantidad'],
+            properties: {
+                _id: {
+                    bsonType: "int",
+                    description: "ID del inventarios"
+                },
+                id_bodega: {
+                    bsonType: 'int',
+                    description: 'El id_bodega es obligatorio'
+                },
+                id_producto: {
+                    bsonType: 'int',
+                    description: 'El id_producto es obligatorio'
+                },
+                cantidad: {
+                    bsonType: 'int',
+                    description: 'La cantidad es obligatoria'
+                },
+                created_by: {
+                    bsonType: 'int',
+                    description: 'El created_by es obligatorio'
+                },
+                update_by: {
+                    bsonType: 'int',
+                    description: 'El update_by es obligatorio'
+                },
+                created_at: {
+                    bsonType: 'date',
+                    description: 'El created_at no es obligatorio ni opcional pero se acepta el dato'
+                },
+                updated_at: {
+                    bsonType: 'date',
+                    description: 'El updated_at no es obligatorio ni opcional pero se acepta el dato'
+                },
+                deleted_at: {
+                    bsonType: 'date',
+                    description: 'El deleted_at no es obligatorio ni opcional pero se acepta el dato'
+                }
+            }
+        }
+    }
+});
+
+use("DB_BODEGAS_V1");
+db.inventarios.insertMany([
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 12,
+        id_producto: 18,
+        cantidad: 103,
+        created_by: 11,
+        created_at: ISODate('2023-05-26')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 19,
+        id_producto: 18,
+        cantidad: 220,
+        created_by: 19
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 20,
+        id_producto: 13,
+        cantidad: 13,
+        created_by: 14
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 19,
+        id_producto: 14,
+        cantidad: 7,
+        created_by: 15
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 12,
+        id_producto: 27,
+        cantidad: 9,
+        created_by: 16
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 19,
+        id_producto: 23,
+        cantidad: 45666,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 26,
+        id_producto: 24,
+        cantidad: 45000,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 26,
+        id_producto: 25,
+        cantidad: 45666,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 26,
+        id_producto: 26,
+        cantidad: 6000,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 28,
+        id_producto: 27,
+        cantidad: 89700,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 23,
+        id_producto: 28,
+        cantidad: 9999,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 18,
+        id_producto: 18,
+        cantidad: 7898,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 18,
+        id_producto: 27,
+        cantidad: 55281,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 29,
+        id_producto: 29,
+        cantidad: 5993,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("inventarios")),
+        id_bodega: 29,
+        id_producto: 27,
+        cantidad: 5005,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    }
+]);
+
+use("DB_BODEGAS_V1");
+db.createCollection("historiales", {
+    capped: true,
+    size: 5000,
+    max: 30,
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            additionalProperties: false,
+            required: ['_id', 'cantidad', 'id_bodega_origen', 'id_bodega_destino', 'id_inventario'],
+            properties: {
+                _id: {
+                    bsonType: "int",
+                    description: "ID de historiales"
+                },
+                cantidad: {
+                    bsonType: 'int',
+                    description: 'La cantidad es obligatoria'
+                },
+                id_bodega_origen: {
+                    bsonType: 'int',
+                    description: 'El id_bodega_origen es obligatorio'
+                },
+                id_bodega_destino: {
+                    bsonType: 'int',
+                    description: 'El id_bodega_destino es obligatorio'
+                },
+                id_inventario: {
+                    bsonType: 'int',
+                    description: 'El id_inventario es obligatorio'
+                },
+                created_by: {
+                    bsonType: 'int',
+                    description: 'El created_by es obligatorio'
+                },
+                update_by: {
+                    bsonType: 'int',
+                    description: 'El update_by es obligatorio'
+                },
+                created_at: {
+                    bsonType: 'date',
+                    description: 'El created_at no es obligatorio ni opcional pero se acepta el dato'
+                },
+                updated_at: {
+                    bsonType: 'date',
+                    description: 'El updated_at no es obligatorio ni opcional pero se acepta el dato'
+                },
+                deleted_at: {
+                    bsonType: 'date',
+                    description: 'El deleted_at no es obligatorio ni opcional pero se acepta el dato'
+                }
+            }
+        }
+    }
+});
+
+use("DB_BODEGAS_V1");
+db.historiales.insertMany([
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 7,
+        id_bodega_origen: 12,
+        id_bodega_destino: 18,
+        id_inventario: 18,
+        created_by: 18
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 9,
+        id_bodega_origen: 11,
+        id_bodega_destino: 12,
+        id_inventario: 18,
+        created_by: 15
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 7,
+        id_bodega_origen: 29,
+        id_bodega_destino: 30,
+        id_inventario: 36,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 666,
+        id_bodega_origen: 26,
+        id_bodega_destino: 24,
+        id_inventario: 27,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 100,
+        id_bodega_origen: 19,
+        id_bodega_destino: 18,
+        id_inventario: 41,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 25,
+        id_bodega_origen: 19,
+        id_bodega_destino: 26,
+        id_inventario: 41,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 25,
+        id_bodega_origen: 19,
+        id_bodega_destino: 26,
+        id_inventario: 41,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 300,
+        id_bodega_origen: 18,
+        id_bodega_destino: 12,
+        id_inventario: 42,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 300,
+        id_bodega_origen: 18,
+        id_bodega_destino: 12,
+        id_inventario: 42,
+        created_at: ISODate('2022-06-03'),
+        updated_at: ISODate('2022-06-03')
+    },
+    {
+        _id: Number(siguienteId("historiales")),
+        cantidad: 1,
+        id_bodega_origen: 12,
+        id_bodega_destino: 11,
+        id_inventario: 67,
+        created_at: ISODate('2022-07-11'),
+        updated_at: ISODate('2022-07-11')
+    }
+]);
