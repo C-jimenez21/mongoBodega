@@ -909,16 +909,3 @@ db.historiales.insertMany([
 
 use("DB_BODEGAS_V1");
 db.inventarios.find()
-
-
-use("DB_BODEGAS_V1");
-db.getCollection("productos").aggregate([
-    {
-        $lookup: {
-          from: inventarios,
-          localField: _,
-          foreignField: field,
-          as: result
-        }
-    }
-]);
