@@ -9,37 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Expose, Transform } from 'class-transformer';
 import { IsDefined } from 'class-validator';
-export class storageBodega {
+export class storageInventario {
     constructor(data) {
         Object.assign(this, data);
-        this.nombre = "Faker";
-        this.id_responsable = 0;
-        this.estado = 0;
+        this.id_bodega = 0;
+        this.id_producto = 0;
+        this.cantidad = 0;
     }
 }
 __decorate([
-    Expose({ name: '_id' }),
-    Transform(({ value }) => { if (value)
-        return value;
-    else
-        0; }),
+    Expose({ name: 'id_bodega' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El id_bodega es obligatoria` }; } }),
     __metadata("design:type", Number)
-], storageBodega.prototype, "_id", void 0);
+], storageInventario.prototype, "id_bodega", void 0);
 __decorate([
-    Expose({ name: 'nombre' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El nombre es obligatorio` }; } }),
-    __metadata("design:type", String)
-], storageBodega.prototype, "nombre", void 0);
-__decorate([
-    Expose({ name: 'id_responsable' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El id_responsable es obligatoria` }; } }),
+    Expose({ name: 'id_producto' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El id_producto es obligatoria` }; } }),
     __metadata("design:type", Number)
-], storageBodega.prototype, "id_responsable", void 0);
+], storageInventario.prototype, "id_producto", void 0);
 __decorate([
-    Expose({ name: 'estado' }),
-    IsDefined({ message: () => { throw { status: 422, message: `La estado es obligatoria` }; } }),
+    Expose({ name: 'cantidad' }),
+    IsDefined({ message: () => { throw { status: 422, message: `La cantidad es obligatoria` }; } }),
     __metadata("design:type", Number)
-], storageBodega.prototype, "estado", void 0);
+], storageInventario.prototype, "cantidad", void 0);
 __decorate([
     Expose({ name: 'created_by' }),
     Transform(({ value }) => { if (value)
@@ -47,7 +39,7 @@ __decorate([
     else
         0; }),
     __metadata("design:type", Number)
-], storageBodega.prototype, "created_by", void 0);
+], storageInventario.prototype, "created_by", void 0);
 __decorate([
     Expose({ name: 'update_by' }),
     Transform(({ value }) => { if (value)
@@ -55,7 +47,7 @@ __decorate([
     else
         0; }),
     __metadata("design:type", Number)
-], storageBodega.prototype, "update_by", void 0);
+], storageInventario.prototype, "update_by", void 0);
 __decorate([
     Expose({ name: 'created_at' }),
     Transform(({ value }) => { if (value)
@@ -63,7 +55,7 @@ __decorate([
     else
         "faker"; }),
     __metadata("design:type", String)
-], storageBodega.prototype, "created_at", void 0);
+], storageInventario.prototype, "created_at", void 0);
 __decorate([
     Expose({ name: 'updated_at' }),
     Transform(({ value }) => { if (value)
@@ -71,7 +63,7 @@ __decorate([
     else
         "faker"; }),
     __metadata("design:type", String)
-], storageBodega.prototype, "updated_at", void 0);
+], storageInventario.prototype, "updated_at", void 0);
 __decorate([
     Expose({ name: 'deleted_at' }),
     Transform(({ value }) => { if (value)
@@ -79,4 +71,4 @@ __decorate([
     else
         "faker"; }),
     __metadata("design:type", String)
-], storageBodega.prototype, "deleted_at", void 0);
+], storageInventario.prototype, "deleted_at", void 0);
