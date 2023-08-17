@@ -2,7 +2,7 @@
   "target": "es6",
   "module": "ES6",
   "moduleResolution": "node",
-  "outDir": "./src/models/storage/",
+  "outDir": "./src/models/",
   "esModuleInterop": true,
   "experimentalDecorators": true,
   "emitDecoratorMetadata": true
