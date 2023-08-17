@@ -162,7 +162,7 @@ db.createCollection("bodegas", {
         $jsonSchema: {
             bsonType: 'object',
             additionalProperties: false,
-            required: ['nombre', 'id_responsable', 'estado'],
+            required: ['_id','nombre', 'id_responsable', 'estado'],
             properties: {
                 _id: {
                     bsonType: "int",
@@ -466,6 +466,7 @@ db.createCollection("productos", {
                 _id: {
                     bsonType: "int",
                     description: "ID del productos"
+                    
                 },
                 nombre: {
                     bsonType: 'string',

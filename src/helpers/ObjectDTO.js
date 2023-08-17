@@ -1,10 +1,9 @@
+import { storageProducto } from '../models/Producto.js'
+import { storageInventario } from '../models/Inventario.js'
+import { storageBodega } from '../models/Bodega.js'
 
-
-
-
-
-const objectDTO = {
-    "bodegas": Bodegas,
-    "inventarios": Inventarios,
-    "productos": Producto
+export const objectDTO = {
+    "bodegas": storageBodega,
+    "inventarios": storageInventario,
+    "productos": storageProducto
 }
