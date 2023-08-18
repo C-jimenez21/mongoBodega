@@ -22,7 +22,7 @@ appToken.use("/:collection", async(req,res)=>{
         const jwt = await jwtconstructor
         .setProtectedHeader({alg:"HS256", typ: "JWT"})
         .setIssuedAt()
-        .setExpirationTime("30m")
+        .setExpirationTime("5m")
         .sign(encoder.encode(process.env.JWT_PRIVATE_KEY));
       
         req.data=jwt
