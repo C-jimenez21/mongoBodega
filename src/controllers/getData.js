@@ -102,35 +102,37 @@ unidades y la Bodega C tiene 3 unidades. Total= 18.
 
 
     const postBodegas = async (req, res, next) => {
-            let {nombre, responsable, estado, creador} = req.body
-            let session
-            try {
-                const nuevaSesion = await counter.getNewId("bodegas")
-                const { newId, session: newSession } = nuevaSesion;
-                session = newSession;
-                const bodegasCollection = await collectionGen("bodegas");
-                const result = await bodegasCollection.insertOne(
-                    {
-                        _id: newId,
-                        nombre: nombre,
-                        id_responsable: responsable,
-                        estado: estado,
-                        created_by: creador,
-                        update_by: null,
-                        created_at: new Date(),
-                        updated_at: null,
-                        deleted_at: null
-                    },
-                );
-                await session.commitTransaction();
-                return result;
-            } catch (error) {
-                throw error;
-            } finally {
-                if (session) {
-                    session.endSession();
-                }
-            }
+    
+        
+            // let {nombre, responsable, estado, creador} = req.body
+            // let session
+            // try {
+            //     const nuevaSesion = await counter.getNewId("bodegas")
+            //     const { newId, session: newSession } = nuevaSesion;
+            //     session = newSession;
+            //     const bodegasCollection = await collectionGen("bodegas");
+            //     const result = await bodegasCollection.insertOne(
+            //         {
+            //             _id: newId,
+            //             nombre: nombre,
+            //             id_responsable: responsable,
+            //             estado: estado,
+            //             created_by: creador,
+            //             update_by: null,
+            //             created_at: new Date(),
+            //             updated_at: null,
+            //             deleted_at: null
+            //         },
+            //     );
+            //     await session.commitTransaction();
+            //     return result;
+            // } catch (error) {
+            //     throw error;
+            // } finally {
+            //     if (session) {
+            //         session.endSession();
+            //     }
+            // }
         };
 
 
