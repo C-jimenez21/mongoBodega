@@ -6,16 +6,16 @@ export class storageBodega {
     @Transform(({ value }) => { if(value) return value ; else 0})
     _id: number;
 
-    @Expose({ name: 'nombre' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `El nombre es obligatorio`}}})    
+    @Expose({ name: 'Nombre_Bodega' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Nombre_Bodega es obligatorio`}}})    
     nombre: string;
 
-    @Expose({ name: 'id_responsable' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `El id_responsable es obligatoria`}}})
+    @Expose({ name: 'Id_Responsable_Bodega' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Id_Responsable_Bodega es obligatoria`}}})
     id_responsable: number;
 
-    @Expose({ name: 'estado' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `La estado es obligatoria`}}})
+    @Expose({ name: 'Estado_Bodega' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `La Estado_Bodega es obligatoria`}}})
     estado: number;
 
     @Expose({ name: 'created_by' })
