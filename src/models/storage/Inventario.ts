@@ -2,16 +2,16 @@ import { Expose, Transform } from 'class-transformer';
 import { IsDefined} from 'class-validator';
 export class storageInventario {
 
-    @Expose({ name: 'id_bodega' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `El id_bodega es obligatoria`}}})
+    @Expose({ name: 'Id_Bodega' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Id_Bodega  es obligatoria`}}})
     id_bodega: number;
 
-    @Expose({ name: 'id_producto' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `El id_producto es obligatoria`}}})
+    @Expose({ name: 'Id_Producto' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Id_Producto es obligatoria`}}})
     id_producto: number;
 
-    @Expose({ name: 'cantidad' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `La cantidad es obligatoria`}}})
+    @Expose({ name: 'Cantidad_Inventario' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `La Cantidad_Inventario es obligatoria`}}})
     cantidad: number;
 
     @Expose({ name: 'created_by' })

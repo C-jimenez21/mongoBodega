@@ -18,8 +18,8 @@ export class storageProducto {
     }
 }
 __decorate([
-    Expose({ name: 'nombre' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El nombre es obligatoria` }; } }),
+    Expose({ name: 'Nombre_Producto' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El Nombre_Producto es obligatoria` }; } }),
     __metadata("design:type", String)
 ], storageProducto.prototype, "nombre", void 0);
 __decorate([
@@ -31,13 +31,13 @@ __decorate([
     __metadata("design:type", String)
 ], storageProducto.prototype, "descripcion", void 0);
 __decorate([
-    Expose({ name: 'estado' }),
-    IsDefined({ message: () => { throw { status: 422, message: `La estado es obligatoria` }; } }),
+    Expose({ name: 'Estado_producto' }),
+    IsDefined({ message: () => { throw { status: 422, message: `La Estado_producto es obligatoria` }; } }),
     __metadata("design:type", Number)
 ], storageProducto.prototype, "estado", void 0);
 __decorate([
-    Expose({ name: 'created_by' }),
-    IsDefined({ message: () => { throw { status: 422, message: `La created_by es obligatoria` }; } }),
+    Expose({ name: 'Created_by' }),
+    IsDefined({ message: () => { throw { status: 422, message: `La Created_by es obligatoria` }; } }),
     __metadata("design:type", Number)
 ], storageProducto.prototype, "created_by", void 0);
 __decorate([

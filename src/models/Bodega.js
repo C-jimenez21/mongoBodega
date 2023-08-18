@@ -26,8 +26,8 @@ __decorate([
     __metadata("design:type", Number)
 ], storageBodega.prototype, "_id", void 0);
 __decorate([
-    Expose({ name: 'Nombre_Bodega' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El Nombre_Bodega es obligatorio` }; } }),
+    Expose({ name: 'Bodega_Nombre' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El Bodega_Nombre es obligatorio` }; } }),
     __metadata("design:type", String)
 ], storageBodega.prototype, "nombre", void 0);
 __decorate([

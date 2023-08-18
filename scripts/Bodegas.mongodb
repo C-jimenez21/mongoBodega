@@ -470,7 +470,7 @@ db.createCollection("productos", {
                 },
                 nombre: {
                     bsonType: 'string',
-                    description: 'El nombre es obligatorio'
+                    description: 'El Nombre_Producto es obligatorio y debe ser un string'
                 },
                 descripcion: {
                     bsonType: 'string',
@@ -478,11 +478,11 @@ db.createCollection("productos", {
                 },
                 estado: {
                     bsonType: 'int',
-                    description: 'El estado es obligatorio'
+                    description: 'El Estado_producto es obligatorio y debe ser entero'
                 },
                 created_by: {
                     bsonType: 'int',
-                    description: 'El created_by es obligatorio'
+                    description: 'El Created_by es obligatorio y debe ser un entero'
                 }
             },
             allOf: [
@@ -604,15 +604,15 @@ db.createCollection("inventarios", {
                 },
                 id_bodega: {
                     bsonType: 'int',
-                    description: 'El id_bodega es obligatorio'
+                    description: 'El Id_Bodega es obligatorio'
                 },
                 id_producto: {
                     bsonType: 'int',
-                    description: 'El id_producto es obligatorio'
+                    description: 'El Id_Producto es obligatorio'
                 },
                 cantidad: {
                     bsonType: 'int',
-                    description: 'La cantidad es obligatoria'
+                    description: 'La Cantidad_Inventario es obligatoria'
                 },
                 created_by: {
                     bsonType: 'int',

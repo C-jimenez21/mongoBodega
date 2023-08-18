@@ -18,18 +18,18 @@ export class storageInventario {
     }
 }
 __decorate([
-    Expose({ name: 'id_bodega' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El id_bodega es obligatoria` }; } }),
+    Expose({ name: 'Id_Bodega' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El Id_Bodega  es obligatoria` }; } }),
     __metadata("design:type", Number)
 ], storageInventario.prototype, "id_bodega", void 0);
 __decorate([
-    Expose({ name: 'id_producto' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El id_producto es obligatoria` }; } }),
+    Expose({ name: 'Id_Producto' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El Id_Producto es obligatoria` }; } }),
     __metadata("design:type", Number)
 ], storageInventario.prototype, "id_producto", void 0);
 __decorate([
-    Expose({ name: 'cantidad' }),
-    IsDefined({ message: () => { throw { status: 422, message: `La cantidad es obligatoria` }; } }),
+    Expose({ name: 'Cantidad_Inventario' }),
+    IsDefined({ message: () => { throw { status: 422, message: `La Cantidad_Inventario es obligatoria` }; } }),
     __metadata("design:type", Number)
 ], storageInventario.prototype, "cantidad", void 0);
 __decorate([

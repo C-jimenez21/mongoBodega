@@ -2,20 +2,20 @@ import { Expose, Transform } from 'class-transformer';
 import { IsDefined} from 'class-validator';
 export class storageProducto {
     
-    @Expose({ name: 'nombre' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `El nombre es obligatoria`}}})
+    @Expose({ name: 'Nombre_Producto' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Nombre_Producto es obligatoria`}}})
     nombre: string;
 
     @Expose({ name: 'descripcion' })
     @Transform(({ value }) => { if(value) return value ; else "faker"})
     descripcion: string;
 
-    @Expose({ name: 'estado' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `La estado es obligatoria`}}})
+    @Expose({ name: 'Estado_producto' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `La Estado_producto es obligatoria`}}})
     estado: number;
 
-    @Expose({ name: 'created_by' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `La created_by es obligatoria`}}})
+    @Expose({ name: 'Created_by' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `La Created_by es obligatoria`}}})
     created_by: number;
 
     @Expose({ name: 'update_by' })
