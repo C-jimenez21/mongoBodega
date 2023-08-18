@@ -166,19 +166,19 @@ db.createCollection("bodegas", {
             properties: {
                 _id: {
                     bsonType: "int",
-                    description: "ID de bodegas"
+                    description: "ID debe ser un dato obligatorio y entero"
                 },
                 nombre: {
                     bsonType: 'string',
-                    description: 'El nombre es obligatorio',
+                    description: 'El Bodega_Nombre es obligatorio y debe ser un string',
                 },
                 id_responsable: {
                     bsonType: 'int',
-                    description: 'El id_responsable es obligatorio'
+                    description: 'El Id_Responsable_Bodega es obligatorio y debe ser un numero entero',
                 },
                 estado: {
                     bsonType: 'int',
-                    description: 'El estado es obligatorio'
+                    description: 'El Estado_Bodega es obligatorio y debe ser un entero'
                 },
                 created_by: {
                     bsonType: 'int',
@@ -909,4 +909,4 @@ db.historiales.insertMany([
 
 
 use("DB_BODEGAS_V1");
-db.inventarios.find()
+db.bodegas.find().sort({nombre: -1})

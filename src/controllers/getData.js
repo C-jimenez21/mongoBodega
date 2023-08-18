@@ -1,5 +1,6 @@
 import {genCollection} from '../helpers/db.js'
 import {con} from '../DB/connection.js'
+import { Collection } from 'mongodb';
 
 
 //Realizar un EndPolnt que permita listar todas las bodegas ordenadas alfabéticamente.
@@ -33,6 +34,8 @@ import {con} from '../DB/connection.js'
                     }
                 }
             ]
+        let consult2 = await coleccion.find().sort( { nombre: 1 } )
+
            let data = await coleccion.aggregate(consulting).toArray()
             res.send(data); 
         } catch (error) {
@@ -88,6 +91,7 @@ unidades y la Bodega C tiene 3 unidades. Total= 18.
                     }
                 }
             ]
+
            let data = await coleccion.aggregate(consulting).toArray()
             res.send(data); 
         } catch (error) {

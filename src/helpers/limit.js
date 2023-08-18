@@ -6,7 +6,7 @@ export let limitGet = () =>{
         standardHeaders: true,
         legacyHeaders: false,
         skip: (req, res) => {
-            if(req.headers["content-length"]>980){
+            if(req.headers["content-length"]>350){
                 res.status(413).send({status:413, message: "characters size exceeded" });
                 return true;
             }

@@ -11,14 +11,30 @@ const genCollection = async (coleccion) => {
     }
 }
 
-const startTransaction = async () => {
-    const db = await con();
-    const session = db.client.startSession(); 
-    session.startTransaction();
-    return session;
-}
+
+ async function getNewId(coleccion) {
+        try {
+            const countersCollection = await genCollection("counters");
+            const counterDoc = await countersCollection.findOneAndUpdate(
+                { _id: `${coleccion}Id` },
+                { $inc: { sequence_value: 1 } },
+                { returnOriginal: false, upsert: true }
+            );
+            const newId = Number(counterDoc.value.sequence_value + 1);
+
+            return newId;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+ 
+
+
+
+
+
 
 export {
     genCollection,
-    startTransaction
-}
+    getNewId}

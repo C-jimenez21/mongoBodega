@@ -26,18 +26,18 @@ __decorate([
     __metadata("design:type", Number)
 ], storageBodega.prototype, "_id", void 0);
 __decorate([
-    Expose({ name: 'nombre' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El nombre es obligatorio` }; } }),
+    Expose({ name: 'Nombre_Bodega' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El Nombre_Bodega es obligatorio` }; } }),
     __metadata("design:type", String)
 ], storageBodega.prototype, "nombre", void 0);
 __decorate([
-    Expose({ name: 'id_responsable' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El id_responsable es obligatoria` }; } }),
+    Expose({ name: 'Id_Responsable_Bodega' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El Id_Responsable_Bodega es obligatoria` }; } }),
     __metadata("design:type", Number)
 ], storageBodega.prototype, "id_responsable", void 0);
 __decorate([
-    Expose({ name: 'estado' }),
-    IsDefined({ message: () => { throw { status: 422, message: `La estado es obligatoria` }; } }),
+    Expose({ name: 'Estado_Bodega' }),
+    IsDefined({ message: () => { throw { status: 422, message: `La Estado_Bodega es obligatoria` }; } }),
     __metadata("design:type", Number)
 ], storageBodega.prototype, "estado", void 0);
 __decorate([

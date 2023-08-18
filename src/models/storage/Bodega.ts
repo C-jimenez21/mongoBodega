@@ -6,8 +6,8 @@ export class storageBodega {
     @Transform(({ value }) => { if(value) return value ; else 0})
     _id: number;
 
-    @Expose({ name: 'Nombre_Bodega' })
-    @IsDefined({message: ()=>{ throw {status: 422, message: `El Nombre_Bodega es obligatorio`}}})    
+    @Expose({ name: 'Bodega_Nombre' })
+    @IsDefined({message: ()=>{ throw {status: 422, message: `El Bodega_Nombre es obligatorio`}}})    
     nombre: string;
 
     @Expose({ name: 'Id_Responsable_Bodega' })
