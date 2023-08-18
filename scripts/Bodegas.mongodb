@@ -910,3 +910,67 @@ db.historiales.insertMany([
 
 use("DB_BODEGAS_V1");
 db.bodegas.find().sort({nombre: -1})
+use("DB_BODEGAS_V1");
+db.getCollection("inventarios").aggregate([
+{
+    $lookup: {
+      from: "productos",
+      localField: "_id",
+      foreignField: "_id",
+      as: "fk_product"
+    }
+  },{
+    $unwind: "$fk_product"
+  },{
+    $group: {
+      _id: "$id_producto",
+      Total: { $sum: "$cantidad" }
+    }
+  },
+  {
+        $project: {
+          "_id": "$fk_product.nombre",
+        
+        }
+      },
+  { 
+    $sort: { Total: -1 }
+  }
+  
+])
+
+
+use("DB_BODEGAS_V1");
+db.getCollection("inventarios").aggregate([
+  {
+    $lookup: {
+      from: "productos",
+      localField: "_id",
+      foreignField: "_id",
+      as: "fk_products"
+    }
+  },
+  {
+    $unwind: "$fk_products"
+  },
+  {
+    $group: {
+      _id: "$id_producto",
+      Producto_Nombre: { $first: "$fk_products.nombre" },
+      Total: { $sum: "$cantidad" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      "fk_products._id": 0,
+      created_at: 0,
+      created_by: 0,
+      updated_at: 0
+    }
+  },
+  {
+    $sort: { Total: -1 }
+  }
+])
+
